@@ -3,9 +3,9 @@ import * as uuid from 'uuid';
 import {getDistConfig} from './dist-config';
 import {createBucketForCloudfront} from './bucket';
 
-const APP_URL = 'dev4.demo.taskbase.com';
+const APP_URL = 'dev5.demo.taskbase.com';
 
-const BUCKET_NAME = 'test-' + uuid.v4();
+const BUCKET_NAME = 'cf-' + uuid.v4();
 const DOMAIN_NAME = `${BUCKET_NAME}.s3.amazonaws.com`;
 
 const CONFIG = getDistConfig({
