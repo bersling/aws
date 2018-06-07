@@ -75,13 +75,7 @@ export function getDistConfig(partialConfig: PartialDistConfig) {
         'Compress': true
       },
       'CallerReference': partialConfig.callerReference,
-      'ViewerCertificate': {
-        'SSLSupportMethod': 'sni-only',
-        'ACMCertificateArn': 'arn:aws:acm:us-east-1:858595127436:certificate/0a4adfed-fd09-4e1b-aa47-07c94477f0c5',
-        'MinimumProtocolVersion': 'TLSv1.1_2016',
-        'Certificate': 'arn:aws:acm:us-east-1:858595127436:certificate/0a4adfed-fd09-4e1b-aa47-07c94477f0c5',
-        'CertificateSource': 'acm'
-      },
+      'ViewerCertificate': getCertificate(partialConfig.certificate),
       'CustomErrorResponses': {
         'Items': [
           {
@@ -110,8 +104,25 @@ export function getDistConfig(partialConfig: PartialDistConfig) {
   };
 }
 
+export function getCertificate(cert: Certificate) {
+  return {
+    'SSLSupportMethod': 'sni-only',
+    'ACMCertificateArn': cert.ACMCertificateArn,
+    'MinimumProtocolVersion': 'TLSv1.1_2016',
+    'Certificate': cert.Certificate,
+    'CertificateSource': 'acm'
+  }
+}
+
 export interface PartialDistConfig {
   domainName: string;
   callerReference: string;
   appUrl: string;
+  certificate: Certificate;
 }
+
+export interface Certificate {
+  ACMCertificateArn: string;
+  Certificate: string;
+}
+
