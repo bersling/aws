@@ -41,7 +41,7 @@ export function getDistConfig(partialConfig: PartialDistConfig) {
           'Quantity': 0
         },
         'TargetOriginId': 'S3-Bucket',
-        'ViewerProtocolPolicy': 'allow-all',
+        'ViewerProtocolPolicy': 'redirect-to-https',
         'ForwardedValues': {
           'Headers': {
             'Quantity': 0
@@ -109,7 +109,6 @@ export function getCertificate(cert: Certificate) {
     'SSLSupportMethod': 'sni-only',
     'ACMCertificateArn': cert.ACMCertificateArn,
     'MinimumProtocolVersion': 'TLSv1.1_2016',
-    'Certificate': cert.Certificate,
     'CertificateSource': 'acm'
   }
 }
@@ -123,6 +122,5 @@ export interface PartialDistConfig {
 
 export interface Certificate {
   ACMCertificateArn: string;
-  Certificate: string;
 }
 
