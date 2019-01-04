@@ -30,7 +30,7 @@ export function createBucketForCloudfront(bucketName: string) {
       await new AWS.S3().createBucket({Bucket: bucketName}).promise();
       await new AWS.S3().putBucketPolicy({Bucket: bucketName, Policy: getPublicBucketPolicy(bucketName)}).promise();
       await new AWS.S3().putBucketWebsite({Bucket: bucketName, WebsiteConfiguration: getBucketWebsiteConfig()});
-      console.log('Successfully created bucket with website settings');
+      console.log(`Successfully created the bucket: ${bucketName}`);
       resolve();
     } catch(e) {
       console.log(e);
