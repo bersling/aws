@@ -54,9 +54,9 @@ export function getDistConfig(partialConfig: PartialDistConfig) {
           },
           'QueryString': false
         },
-        'MaxTTL': 0,
+        'MaxTTL': 31536000,
         'SmoothStreaming': false,
-        'DefaultTTL': 0,
+        'DefaultTTL': 86400,
         'AllowedMethods': {
           'Items': [
             'HEAD',

@@ -1,5 +1,4 @@
 import * as AWS from 'aws-sdk';
-import * as uuid from 'uuid';
 import {Certificate, getDistConfig} from './dist-config';
 import {createBucketForCloudfront} from './bucket';
 
@@ -13,7 +12,7 @@ const taskbaseConfig: Config = {
     ACMCertificateArn: 'arn:aws:acm:us-east-1:858595127436:certificate/0a4adfed-fd09-4e1b-aa47-07c94477f0c5'
   },
   profile: 'taskbase-cloudfront-admin'
-}
+};
 
 const tsmeanConfig: Config = {
   certificate: {
@@ -24,11 +23,11 @@ const tsmeanConfig: Config = {
 
 // ENTER YOUR STUFF HERE
 // LOGIN TO THE CORRECT ACCOUNT FIRST
-const APP_URL = 'www.example.com'; // choose lowercased cname without numbers
+const APP_URL = 'lap.taskbase.com'; // choose lowercased cname without numbers
 const usedConfig = taskbaseConfig;
+const BUCKET_NAME = 'cf-tb-lap';
 // ENTER YOUR STUFF HERE
 
-const BUCKET_NAME = 'cf-' + uuid.v4();
 const DOMAIN_NAME = `${BUCKET_NAME}.s3.amazonaws.com`;
 
 const credentials = new AWS.SharedIniFileCredentials({profile: usedConfig.profile});
