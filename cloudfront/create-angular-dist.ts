@@ -23,9 +23,9 @@ const tsmeanConfig: Config = {
 
 // ENTER YOUR STUFF HERE
 // LOGIN TO THE CORRECT ACCOUNT FIRST
-const APP_URL = 'lap.taskbase.com'; // choose lowercased cname without numbers
+const APP_URL = 'angular-libraries-demo.taskbase.com'; // choose lowercased cname without numbers
 const usedConfig = taskbaseConfig;
-const BUCKET_NAME = 'cf-tb-lap';
+const BUCKET_NAME = 'cf-tb-taskbase-angular-libraries';
 // ENTER YOUR STUFF HERE
 
 const DOMAIN_NAME = `${BUCKET_NAME}.s3.amazonaws.com`;
